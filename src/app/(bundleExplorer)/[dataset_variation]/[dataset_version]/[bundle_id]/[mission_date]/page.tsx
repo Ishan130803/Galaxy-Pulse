@@ -13,7 +13,7 @@ type route_params = {
 interface IPageProps {
   params: route_params;
 }
-export const Page: FC<IPageProps> = async (props) => {
+const Page: FC<IPageProps> = async (props) => {
   const { params } = props;
   console.log(await get_sample_image_url({ ...params }));
   return (

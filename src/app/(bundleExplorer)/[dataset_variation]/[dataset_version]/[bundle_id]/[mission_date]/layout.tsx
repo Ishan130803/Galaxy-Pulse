@@ -7,15 +7,20 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-        <div className="h-screen w-screen overflow-hidden background-image-putter">
-          <div className="flex h-24 '">
-            <div className="self-center ml-10 ">
-              <Button className=" text-indigo-500 hover:outline-8 hover:outline-indigo-900  hover:text-indigo-900 hover:font-bold hover:bg-white">
-                <Link href={"/"}>Go Back To File Browse</Link>
-              </Button>
-            </div>
-          </div>
-          <div className="overflow-scroll h-full w-full flex-col flex-none">{children}</div>
+    <div className="bg-black background-image-putter  flex flex-col flex-none h-screen w-screen">
+      <div className="flex justify-center h-24 ">
+        <div className="fixed justify-self-start self-center ml-10 left-0">
+          <Button className="box-border w-fit px-4 border-2 border-white  text-white font-mono">
+            <Link href={"/file_browse"}>Go Back To File Browse</Link>
+          </Button>
         </div>
+        <div className="self-center justify-center text-white font-mono text-6xl ">
+          {"Lunar Geology Analyzer"}
+        </div>
+      </div>
+      <div className="overflow-scroll w-full grow flex flex-col">
+        {children}
+      </div>
+    </div>
   );
-};
+}

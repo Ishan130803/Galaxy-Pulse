@@ -1,6 +1,5 @@
 import { Button } from "@mui/joy";
 import Link from "next/link";
-import '@/globals.css'
 
 export default function RootLayout({
   children,

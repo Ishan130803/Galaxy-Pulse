@@ -2,7 +2,6 @@ import { get_sample_image_url } from "@/utils/localtunnelServer";
 import { Box } from "@mui/joy";
 import Image from "next/image";
 import { FC } from "react";
-import './page.css'
 
 type route_params = {
   dataset_variation: string;

@@ -5,13 +5,13 @@ export default function Layout({
   children: React.ReactNode;
 }>) {
   return (
-        <div className="h-screen w-screen overflow-hidden">
-          <div className="flex justify-center h-24 bg-indigo-500">
-              <div className="self-center text-white font-mono text-3xl ">
-                Welcome To Galaxy Pulse
+        <div className="bg-black background-image-putter h-screen w-screen overflow-hidden ">
+          <div className="flex justify-center h-24 ">
+              <div className="self-center justify-center text-white font-mono text-6xl ">
+                {"Lunar Explorer"}
               </div>
           </div>
-          <div className="overflow-scroll h-full w-full ">{children}</div>
+          <div className="overflow-scroll w-full h-full flex flex-col flex-none">{children}</div>
         </div>
   );
 }

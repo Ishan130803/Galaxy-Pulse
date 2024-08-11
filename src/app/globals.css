@@ -2,3 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
+.background-image-putter {
+  @apply bg-[url('moon-bg-image.jpg')] bg-fixed bg-center bg-contain bg-no-repeat;
+}

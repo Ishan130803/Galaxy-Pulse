@@ -80,7 +80,7 @@ export const BundleListComponent: FC<IBundleListComponentProps> = (props) => {
           "Something Went Wrong with the server"
         )}
       </Snackbar>
-      <DataGridWrapper rows={data} />
+      <DataGridWrapper rows={data} className="h-full" />
     </div>
   );
 };

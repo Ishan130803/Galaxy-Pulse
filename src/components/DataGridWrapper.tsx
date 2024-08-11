@@ -51,6 +51,7 @@ export const DataGridWrapper: FC<IDataGridWrapperProps> = (props) => {
           getRowId={getRowId}
           columns={gridCols}
           rows={rows}
+          className="h-full"
         />
     </div>
   </>

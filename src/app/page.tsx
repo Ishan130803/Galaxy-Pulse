@@ -5,7 +5,7 @@ import { Button } from "@mui/joy";
 
 function Page() {
   return (
-    <div className="bg-[url('moon-bg-image.jpg')] bg-fixed bg-center bg-contain bg-no-repeat flex flex-col min-h-[100dvh] body-color">
+    <div className="flex flex-col min-h-[100dvh] body-color">
       <header className="px-4 lg:px-6 h-14 flex items-center justify-between">
         <Link
           href="#"
@@ -30,8 +30,8 @@ function Page() {
           </Link>
         </nav>
       </header>
-      <main className="flex-1">
-        <section className="flex items-center justify-center h-[calc(100vh-3.5rem)]  bg-cover bg-center  bg-fixed bg-no-repeat ">
+      <main className="flex-1 background-image-putter">
+        <section className="flex items-center justify-center h-[calc(100vh-3.5rem)]">
           <div className="container px-4 md:px-6 space-y-10 xl:space-y-16">
             <div className="flex flex-grow max-w-[1300px] mx-auto gap-4 px-4 sm:px-6 md:px-10 md:grid-cols-2 md:gap-16">
               <div className="justify-start flex-none w-[354px]">

@@ -16,15 +16,15 @@ function Page() {
           <span className="sr-only">Moon Explorers</span>
         </Link>
         <nav className="flex gap-4 sm:gap-6">
-          <Link href="#" className="nav-item nav-item" prefetch={false}>
+          {/* <Link href="#" className="nav-item nav-item" prefetch={false}>
             About
-          </Link>
+          </Link> */}
           <Link href="#" className="nav-item nav-item" prefetch={false}>
             Technology
           </Link>
-          <Link href="#" className="nav-item" prefetch={false}>
+          {/* <Link href="#" className="nav-item" prefetch={false}>
             Testimonials
-          </Link>
+          </Link> */}
           <Link href="#" className="nav-item" prefetch={false}>
             Contact
           </Link>

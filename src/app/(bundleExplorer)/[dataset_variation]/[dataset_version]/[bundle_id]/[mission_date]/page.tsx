@@ -1,4 +1,11 @@
-import { get_sample_image_url } from "@/utils/localtunnelServer";
+import AnalyticsComponent from "@/components/AnalyticsComponent";
+import { BundleListComponent } from "@/components/BundleListComponent";
+import ImageElementPage from "@/components/ImageElement";
+import { OpenImageAnalysisContextContextProvider } from "@/hooks/OpenImageAnalysisContext";
+import {
+  get_kmeans_image_url,
+  get_sample_image_url,
+} from "@/utils/localtunnelServer";
 import { Box } from "@mui/joy";
 import Image from "next/image";
 import { FC } from "react";
@@ -15,37 +22,30 @@ interface IPageProps {
 const Page: FC<IPageProps> = async (props) => {
   const { params } = props;
   console.log(await get_sample_image_url({ ...params }));
+  const sample_image_url = await get_sample_image_url({ ...params });
+  const kmeans_image_url = await get_kmeans_image_url({ ...params });
   return (
     <>
-      <div className="flex h-full">
-        <Box className="backdrop-blur-xl box-border basis-1/2 w-fit grow border-2 m-10 mr-5 border-double border-white rounded-3xl p-2  overflow-scroll scroll-smooth ">
-          <div className="flex">
-            <img
-              className="min-w-96 flex-shrink-0 object-cover rounded-xl"
-              src={await get_sample_image_url({ ...params })}
-              // src = 'https://galaxypulse.loca.lt/image'
-
-              alt="Image"
-            />
-            <img
-              className="min-w-96 flex-shrink-0"
-              src={await get_sample_image_url({ ...params })}
-              // src = 'https://galaxypulse.loca.lt/image'
-
-              alt="Image"
-            />
+      <OpenImageAnalysisContextContextProvider>
+        <div className="flex h-full">
+          <ImageElementPage
+            url1={sample_image_url}
+            url2={kmeans_image_url}
+            {...params}
+          ></ImageElementPage>
+          <div className="backdrop-blur-xl text-white font-mono p-4 border-2 m-10 border-double ml-5 border-white rounded-3xl basis-1/2 overflow-scroll scroll-smooth ">
+            {/* <AnalyticsComponent
+              spectrum_data={[
+                {
+                  color_code: [234, 100, 123],
+                  image_url: "asdfasdf",
+                  spectrum_name: "something",
+                },
+              ]}
+            ></AnalyticsComponent> */}
           </div>
-        </Box>
-        <div className="backdrop-blur-xl text-white font-mono p-4 border-2 m-10 border-double ml-5 border-white rounded-3xl basis-1/2 overflow-scroll scroll-smooth ">
-          <h1>Some Crazy shit here</h1>
-          <span>
-            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quae
-            nostrum nam non quas vero voluptatibus expedita illo magnam,
-            molestias minus eaque aliquid magni. Possimus facilis hic ipsa
-            similique tempora! Cumque vitae laborum expedita natus?
-          </span>
         </div>
-      </div>
+      </OpenImageAnalysisContextContextProvider>
     </>
   );
 };

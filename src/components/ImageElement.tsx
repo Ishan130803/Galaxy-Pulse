@@ -38,10 +38,10 @@ function ImageElementPage(props: ImageElementPageProps) {
 
   // Ref for the div element
   const divRef = useRef<HTMLImageElement>(null as any);
+  const { setimage_params, setcurrent_click_x, setcurrent_click_y } = useOpenImageAnalysisContext()
 
   // Event handler for mouse movement
   const handleMouseMove = (event: ME<HTMLImageElement, MouseEvent>) => {
-    const { setimage_params, setcurrent_click_x, setcurrent_click_y } = useOpenImageAnalysisContext()
     setimage_params({
       bundle_id : bundle_id,
       dataset_variation : dataset_variation,
@@ -86,7 +86,8 @@ function ImageElementPage(props: ImageElementPageProps) {
       setClassValue(value);
     };
     fetch_value();
-  }, [mousePosition.mouse_x]);
+  }, 
+  [mousePosition.mouse_x]);
 
   return (
     <>

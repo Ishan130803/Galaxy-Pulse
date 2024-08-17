@@ -28,8 +28,8 @@ interface IOpenImageAnalysisContextContextProviderProps {
  * 
  */
 export const OpenImageAnalysisContextContextProvider: React.FC<IOpenImageAnalysisContextContextProviderProps> = (props) => {
-   const [current_click_x, setcurrent_click_x] = useState<number>(null as any);
-   const [current_click_y, setcurrent_click_y] = useState<number>(null as any);
+   const [current_click_x, setcurrent_click_x] = useState<number>(0);
+   const [current_click_y, setcurrent_click_y] = useState<number>(0);
    const [image_params, setimage_params] = useState<Iget_sample_image_url>(null as any);
 
    return (

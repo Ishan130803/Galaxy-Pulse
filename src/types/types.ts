@@ -1,11 +1,22 @@
-import internal from "stream"
+export type IfileBrowseData = {
+  bundle_id : string
+  dataset_variation : string
+  dataset_version : string
+  mission_date : string
+  image_height : number
+  image_width : number
+  top_lattitude : number
+  bottom_lattitude : number
+  left_longitude : number
+  right_longitude : number
+}
+
+export type IBundleMetaData = IfileBrowseData
+
 
 export type IDataGrid = {
-  'Bundle_ID' : string  
-  'Mission_Date' : string
-  'Dataset_version' : string
-  'Dataset_variation' : string
-}
+  link : string
+} & IfileBrowseData
 
 export type SnackBarParams = {
   open : boolean,
@@ -29,10 +40,4 @@ export type Iget_class_labels = {
 
 export type IClassValue = {
   label : string
-}
-
-export type ISpectrumResponseData =  {
-  image_url : string,
-  spectrum_name : string,
-  color_code : [number, number, number]
 }

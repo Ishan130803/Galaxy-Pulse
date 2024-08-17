@@ -7,7 +7,7 @@ import Snackbar from "@mui/joy/Snackbar";
 import { CircularProgress } from "@mui/joy";
 import { get_data_bundle_list } from "@/utils/localtunnelServer";
 import { DataGridWrapper } from "./DataGridWrapper";
-import { IDataGrid, SnackBarParams } from "@/types/types";
+import { IDataGrid, IfileBrowseData, SnackBarParams } from "@/types/types";
 import Link from "next/link";
 interface IBundleListComponentProps extends HTMLAttributes<HTMLDivElement> {}
 
@@ -29,17 +29,15 @@ export const BundleListComponent: FC<IBundleListComponentProps> = (props) => {
     });
     const fetchData = async() => {
       try {
-        const res = await get_data_bundle_list() 
-        
-        setdata(res.map( v => {
-          return {
-            'Bundle_ID' : v[0],
-            'Mission_Date' : v[1],
-            'Dataset_version' : v[2],
-            'Dataset_variation' : v[3],
-            'Link' : `/${v[3]}/${v[2]}/${v[0]}/${v[1]}/`
+        const res : IfileBrowseData[] = await get_data_bundle_list() 
+        console.log(res)
+        setdata(res.map(v => {
+          const data = {
+            ...v,
+            link : `/${v.dataset_variation}/${v.dataset_version}/${v.bundle_id}/${v.mission_date}`
           }
-        }));
+          return data
+        }))
         setSnackBarParams({
           open: true,
           color: "success",

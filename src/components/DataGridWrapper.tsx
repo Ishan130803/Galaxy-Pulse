@@ -17,31 +17,55 @@ interface IDataGridWrapperProps extends HTMLAttributes<HTMLDivElement> {
 export const DataGridWrapper: FC<IDataGridWrapperProps> = (props) => {
   const gridCols: GridColDef[] = [
     {
-      field: "Bundle_ID",
+      field: "bundle_id",
       maxWidth: 1000,
-      minWidth: 500,
+      minWidth: 150,
       headerClassName: "super-app-theme--header",
     },
     {
-      field: "Mission_Date",
+      field: "mission_date",
       maxWidth: 500,
       minWidth: 150,
       headerClassName: "super-app-theme--header",
     },
     {
-      field: "Dataset_version",
+      field: "image_height",
       maxWidth: 500,
       minWidth: 150,
       headerClassName: "super-app-theme--header",
     },
     {
-      field: "Dataset_variation",
+      field: "image_width",
       maxWidth: 500,
       minWidth: 150,
       headerClassName: "super-app-theme--header",
     },
     {
-      field: "Link",
+      field: "top_lattitude",
+      maxWidth: 500,
+      minWidth: 150,
+      headerClassName: "super-app-theme--header",
+    },
+    {
+      field: "bottom_lattitude",
+      maxWidth: 500,
+      minWidth: 150,
+      headerClassName: "super-app-theme--header",
+    },
+    {
+      field: "left_longitude",
+      maxWidth: 500,
+      minWidth: 150,
+      headerClassName: "super-app-theme--header",
+    },
+    {
+      field: "right_longitude",
+      maxWidth: 500,
+      minWidth: 150,
+      headerClassName: "super-app-theme--header",
+    },
+    {
+      field: "link",
       renderCell: (
         params: GridRenderCellParams<any, any, any, GridTreeNodeWithRender>
       ) => (
@@ -51,9 +75,21 @@ export const DataGridWrapper: FC<IDataGridWrapperProps> = (props) => {
       ),
       headerClassName: "super-app-theme--header",
     },
+    {
+      field: "dataset_version",
+      maxWidth: 500,
+      minWidth: 150,
+      headerClassName: "super-app-theme--header",
+    },
+    {
+      field: "dataset_variation",
+      maxWidth: 500,
+      minWidth: 150,
+      headerClassName: "super-app-theme--header",
+    },
   ];
   function getRowId(row: IDataGrid) {
-    return row["Bundle_ID"] + row["Mission_Date"];
+    return row['bundle_id'] + row["mission_date"];
   }
   const { rows, ...div_props } = props;
   return (
@@ -72,22 +108,21 @@ export const DataGridWrapper: FC<IDataGridWrapperProps> = (props) => {
               color: "primary.main",
             },
             "& .MuiDataGrid-cell": {
-              color: 'white',
-              fontFamily : 'monospace',
+              color: "white",
+              fontFamily: "monospace",
             },
             "& .MuiDataGrid-columnHeader": {
               backgroundColor: "rgba(255, 255, 255)",
-              fontFamily : 'monospace',
-              fontWeight : '20px',
-              color : 'black',
+              fontFamily: "monospace",
+              fontWeight: "20px",
+              color: "black",
             },
-            "& .MuiDataGrid-footerContainer" : {
+            "& .MuiDataGrid-footerContainer": {
               backgroundColor: "rgba(255, 255, 255)",
-              fontFamily : 'monospace',
-              fontWeight : '20px',
-              color : 'black',
-            }
-            
+              fontFamily: "monospace",
+              fontWeight: "20px",
+              color: "black",
+            },
           }}
         />
       </div>
